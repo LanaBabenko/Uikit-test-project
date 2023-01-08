@@ -13,6 +13,10 @@ class LoginViewController: UIViewController {
     let sigInButton = UIButton(type: .system)
     let errorMessageLabel = UILabel()
     
+    let stackView = UIStackView()
+    let bankeyLabel = UILabel()
+    let infoLabel = UILabel()
+    
     var username: String? {
         return loginView.usernameTextField.text
     }
@@ -47,12 +51,37 @@ extension LoginViewController {
         errorMessageLabel.textColor = .systemRed
         errorMessageLabel.numberOfLines = 0
         errorMessageLabel.isHidden = true
+        
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .vertical
+        stackView.spacing = 24
+        
+        bankeyLabel.translatesAutoresizingMaskIntoConstraints = false
+        bankeyLabel.textAlignment = .center
+        bankeyLabel.text = "BANKEY"
+        
+        infoLabel.translatesAutoresizingMaskIntoConstraints = false
+        infoLabel.textAlignment = .center
+        infoLabel.numberOfLines = 0
+        infoLabel.text = "Your premium source for all thinks bankey!"
+        
     }
     
     private func layout() {
+        
+        view.addSubview(stackView)
+        stackView.addArrangedSubview(bankeyLabel)
+        stackView.addArrangedSubview(infoLabel)
         view.addSubview(loginView)
         view.addSubview(sigInButton)
         view.addSubview(errorMessageLabel)
+        
+        // StackView label
+        NSLayoutConstraint.activate([
+            stackView.leadingAnchor.constraint(equalTo: loginView.leadingAnchor),
+            stackView.trailingAnchor.constraint(equalTo: loginView.trailingAnchor),
+            loginView.topAnchor.constraint(equalToSystemSpacingBelow: stackView.bottomAnchor, multiplier: 4)
+        ])
         
         //LoginView
         NSLayoutConstraint.activate([
