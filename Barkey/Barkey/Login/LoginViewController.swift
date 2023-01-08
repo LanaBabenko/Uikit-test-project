@@ -11,7 +11,15 @@ class LoginViewController: UIViewController {
     
     let loginView = LoginView()
     let sigInButton = UIButton(type: .system)
+    let errorMessageLabel = UILabel()
     
+    var username: String? {
+        return loginView.usernameTextField.text
+    }
+    
+    var password: String? {
+        return loginView.passwordTextField.text
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,11 +42,17 @@ extension LoginViewController {
         sigInButton.setTitle("Sign In", for: [])
         sigInButton.addTarget(self, action: #selector(signInTapped), for: .primaryActionTriggered)
         
+        errorMessageLabel.translatesAutoresizingMaskIntoConstraints = false
+        errorMessageLabel.textAlignment = .center
+        errorMessageLabel.textColor = .systemRed
+        errorMessageLabel.numberOfLines = 0
+        errorMessageLabel.isHidden = true
     }
     
     private func layout() {
         view.addSubview(loginView)
         view.addSubview(sigInButton)
+        view.addSubview(errorMessageLabel)
         
         //LoginView
         NSLayoutConstraint.activate([
@@ -53,6 +67,13 @@ extension LoginViewController {
             sigInButton.trailingAnchor.constraint(equalTo: loginView.trailingAnchor),
             sigInButton.topAnchor.constraint(equalToSystemSpacingBelow: loginView.bottomAnchor, multiplier: 2)
         ])
+        
+        // error label
+        NSLayoutConstraint.activate([
+            errorMessageLabel.leadingAnchor.constraint(equalTo: sigInButton.leadingAnchor),
+            errorMessageLabel.trailingAnchor.constraint(equalTo: sigInButton.trailingAnchor),
+            errorMessageLabel.topAnchor.constraint(equalToSystemSpacingBelow: sigInButton.bottomAnchor, multiplier: 2)
+        ])
     }
 }
 
@@ -61,7 +82,31 @@ extension LoginViewController {
 extension LoginViewController {
     
     @objc func signInTapped() {
+        errorMessageLabel.isHidden = true
+        login()
+    }
+    
+    private func login() {
+        guard let username = username, let password = password else {
+            assertionFailure("Username / Password should never be nil")
+            return
+        }
         
+        if username.isEmpty || password.isEmpty {
+            configureView(withMessage: "Username / Password cannot be blank")
+            return
+        }
+        
+        if username == "Lana" && password == "uikit" {
+            sigInButton.configuration?.showsActivityIndicator = true
+        } else {
+            configureView(withMessage: "Incorrect username / password")
+        }
+    }
+    
+    private func configureView(withMessage message: String) {
+        errorMessageLabel.isHidden = false
+        errorMessageLabel.text = message
     }
 }
 
