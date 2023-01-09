@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F778648296BFC420083AFF0 /* OnboardingContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F778647296BFC420083AFF0 /* OnboardingContainerViewController.swift */; };
 		9A5A757C2966EED0005A360F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5A757B2966EED0005A360F /* AppDelegate.swift */; };
 		9A5A75802966EED0005A360F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5A757F2966EED0005A360F /* LoginViewController.swift */; };
 		9A5A75852966EED1005A360F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A5A75842966EED1005A360F /* Assets.xcassets */; };
@@ -32,6 +33,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3F778647296BFC420083AFF0 /* OnboardingContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingContainerViewController.swift; sourceTree = "<group>"; };
 		9A5A75782966EED0005A360F /* Barkey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Barkey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A5A757B2966EED0005A360F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9A5A757F2966EED0005A360F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -68,6 +70,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F778646296BFBDC0083AFF0 /* Onbording */ = {
+			isa = PBXGroup;
+			children = (
+				3F778647296BFC420083AFF0 /* OnboardingContainerViewController.swift */,
+			);
+			path = Onbording;
+			sourceTree = "<group>";
+		};
 		9A5A756F2966EED0005A360F = {
 			isa = PBXGroup;
 			children = (
@@ -89,9 +99,10 @@
 		9A5A757A2966EED0005A360F /* Barkey */ = {
 			isa = PBXGroup;
 			children = (
-				9A5A75AB2966FD46005A360F /* Files */,
+				3F778646296BFBDC0083AFF0 /* Onbording */,
 				9A5A75AC2966FDDB005A360F /* Login */,
 				9A5A757B2966EED0005A360F /* AppDelegate.swift */,
+				9A5A75AB2966FD46005A360F /* Files */,
 			);
 			path = Barkey;
 			sourceTree = "<group>";
@@ -248,6 +259,7 @@
 				9A5A75AE2966FE68005A360F /* LoginView.swift in Sources */,
 				9A5A75802966EED0005A360F /* LoginViewController.swift in Sources */,
 				9A5A757C2966EED0005A360F /* AppDelegate.swift in Sources */,
+				3F778648296BFC420083AFF0 /* OnboardingContainerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
